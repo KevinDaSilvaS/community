@@ -1,3 +1,3 @@
 defmodule Link do
-  defstruct url: "", description: ""
+  defstruct id: 0, url: "", description: ""
 end

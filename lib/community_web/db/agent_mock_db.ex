@@ -3,8 +3,8 @@ defmodule Mock_DB do
 
   def start_link(_) do
     Agent.start_link(fn -> [
-      %Link{url: "http://graphql.org/",        description: "The Best Query Language"},
-      %Link{url: "http://dev.apollodata.com/", description: "Awesome GraphQL Client"}
+      %Link{id: 1, url: "http://graphql.org/",        description: "The Best Query Language"},
+      %Link{id: 2, url: "http://dev.apollodata.com/", description: "Awesome GraphQL Client"}
     ] end, name: __MODULE__)
   end
 
