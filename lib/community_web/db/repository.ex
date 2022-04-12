@@ -1,7 +1,8 @@
 defmodule Repository do
 
   def fetch(_query \\ "") do
-    Mock_DB.get_data() |> Enum.map(fn %_{url: url, description: description} -> %{
+    Mock_DB.get_data() |> Enum.map(fn %_{id: id, url: url, description: description} -> %{
+      :id => id,
       :url => url,
       :description => description
     } end)
