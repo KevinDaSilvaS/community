@@ -13,6 +13,6 @@ defmodule Mock_DB do
   end
 
   def insert_data(register) do
-    Agent.update(__MODULE__, &([&1 | register]))
+    Agent.update(__MODULE__, &(&1 ++ [register]))
   end
 end
