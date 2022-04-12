@@ -21,9 +21,15 @@ defmodule CommunityWeb.Router do
     import Phoenix.LiveDashboard.Router
 
     scope "/" do
-      pipe_through [:fetch_session, :protect_from_forgery]
+      pipe_through :api
+      #pipe_through [:fetch_session, :protect_from_forgery]
 
-      live_dashboard "/dashboard", metrics: CommunityWeb.Telemetry
+      #live_dashboard "/dashboard", metrics: CommunityWeb.Telemetry
+
+      forward "/graphiql", Absinthe.Plug.GraphiQL,
+        schema: CommunityWeb.Schema,
+        interface: :simple,
+        context: %{pubSub: CommunityWeb.Endpoint}
     end
   end
 
